@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJ ONLINE SHOP | TikTok Shop & Shopee Finds</title>
+<style>
+:root{--ink:#101828;--blue:#1677ff;--orange:#f45b24;--muted:#667085;--line:#e6eaf0;--bg:#f6f8fb}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:#10151d;color:white;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-weight:900;font-size:25px;letter-spacing:-.6px}.brand span{color:#4da0ff}.tag{color:#c5ccd6;font-size:12px;margin-top:3px}
+nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}nav a{color:#f2f4f7;text-decoration:none;font-size:14px}
+.hero{margin:18px auto 0;width:92%;max-width:1400px;border-radius:22px;overflow:hidden;background:linear-gradient(110deg,#111923 0%,#172b43 56%,#f65b25 150%);color:white;padding:clamp(28px,5vw,65px);display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(30px,4.5vw,58px);line-height:1.04;margin:0 0 16px;max-width:700px}.hero p{color:#d9e2ef;line-height:1.65;max-width:600px}.hero-art{font-size:clamp(70px,12vw,150px);text-align:center;filter:drop-shadow(0 12px 15px #0005)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid #ffffff42;border-radius:99px;padding:8px 13px;font-size:13px}
+main{width:92%;max-width:1400px;margin:28px auto}.toolbar{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:18px}.toolbar h2{margin:0;font-size:25px}
+input,select,textarea{font:inherit;border:1px solid #d0d5dd;border-radius:10px;padding:11px 12px;background:white;min-width:0}
+#search{width:min(100%,340px)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 22px}.filter{border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:white;cursor:pointer}.filter.active{background:var(--blue);color:white;border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 4px 14px #10182808;display:flex;flex-direction:column}
+.photo{width:100%;aspect-ratio:1.12;background:#edf1f6;display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.photo .emoji{font-size:70px}
+.card-body{padding:14px;display:flex;flex-direction:column;flex:1}.category{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}.card h3{font-size:16px;line-height:1.35;margin:7px 0}.price{font-size:19px;font-weight:800;color:#ed4b23;margin:4px 0 12px}.store-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.store{display:inline-block;padding:7px 9px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:700}.tt{background:#15191f;color:white}.sh{background:#fff0e9;color:#e84e1b;border:1px solid #ffd5c3}.no-link{opacity:.5;cursor:not-allowed}.small{font-size:12px;color:var(--muted);line-height:1.5}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:28px}.panel summary{font-weight:800;cursor:pointer;font-size:18px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.formgrid label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700}.wide{grid-column:1/-1}.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:800;cursor:pointer;background:var(--blue);color:white}.btn.secondary{background:#eef4ff;color:#1456b8}.btn.danger{background:#fff0ed;color:#b42318}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.empty{grid-column:1/-1;background:white;border:1px dashed #cbd5e1;padding:35px;text-align:center;border-radius:14px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);padding:30px 5%;font-size:12px}
+@media(max-width:950px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr .35fr}.hero-art{font-size:70px}}
+@media(max-width:680px){header{padding:14px 4%}.brand{font-size:22px}.hero{width:92%;grid-template-columns:1fr;padding:27px}.hero-art{display:none}main{width:92%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card-body{padding:10px}.card h3{font-size:14px}.price{font-size:17px}.toolbar h2{font-size:22px}.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}nav{gap:10px}}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="brand">CJ ONLINE SHOP</div><div class="tag">Your smart finds • TikTok Shop • Shopee Affiliate</div></div>
+  <nav><a href="#products">Products</a><a href="#categories">Categories</a><a href="#manage">Manage Products</a></nav>
+</header>
+<section class="hero">
+  <div>
+    <h1>Find your next favorite product.</h1>
+    <p>Mga sulit finds gikan sa TikTok Shop ug Shopee, naa sa usa ka lugar. Tan-awa ang produkto ug i-click ang store link aron makapalit.</p>
+    <div class="pills"><span class="pill">🛍️ Product finds</span><span class="pill">🔗 Affiliate links</span><span class="pill">📱 Mobile friendly</span></div>
+  </div>
+  <div class="hero-art" aria-hidden="true">🛒📦</div>
+</section>
+<main id="products">
+  <div class="toolbar"><h2>🛒 Product Catalog</h2><input id="search" type="search" placeholder="Search products..." aria-label="Search products"></div>
+  <div class="filters" id="categories"></div>
+  <div class="grid" id="grid"></div>
+  <details class="panel" id="manage">
+    <summary>＋ Add / Manage Products</summary>
+    <p class="small">Ibutang ang detalye sa produkto ug ang imong kaugalingong affiliate link. Ang product image mahimong direct image URL. Kini nga starter site nag-save sa imong browser/device lang hangtod ma-set up nato ang online database.</p>
+    <form id="productForm">
+      <div class="formgrid">
+        <label>Product name *<input name="name" required placeholder="e.g. Mini portable fan"></label>
+        <label>Price / price range<input name="price" placeholder="e.g. ₱199–₱299"></label>
+        <label>Category<select name="category"><option>Electronics</option><option>Home & Living</option><option>Beauty & Skincare</option><option>Fashion</option><option>Kitchen</option><option>Sports & Fitness</option><option>Automotive</option><option>Other</option></select></label>
+        <label>Product image URL<input name="image" type="url" placeholder="https://..."></label>
+        <label>TikTok Shop affiliate link<input name="tiktok" type="url" placeholder="https://..."></label>
+        <label>Shopee affiliate link<input name="shopee" type="url" placeholder="https://..."></label>
+        <label class="wide">Short description<textarea name="description" rows="2" placeholder="Optional product details"></textarea></label>
+      </div>
+      <div class="actions"><button class="btn" type="submit">Save Product</button><button class="btn secondary" type="button" id="resetForm">Clear Form</button><button class="btn danger" type="button" id="exportData">Export Product Backup</button><label class="btn secondary" for="importFile">Import Backup</label><input id="importFile" type="file" accept="application/json" hidden></div>
+      <p class="small" id="formMessage" role="status"></p>
+    </form>
+  </details>
+</main>
+<footer>Disclosure: Some links may be affiliate links. We may earn a commission from qualifying purchases, at no extra cost to you.<br>CJ ONLINE SHOP • Affiliate product catalog</footer>
+<script>
+const KEY='cj_online_shop_products_v1';
+const starter=[
+ {id:'s1',name:'Wireless Bluetooth Earbuds',price:'₱149–₱299',category:'Electronics',image:'',description:'Everyday audio accessory.',tiktok:'',shopee:''},
+ {id:'s2',name:'LED Ring Light with Tripod',price:'₱199–₱399',category:'Electronics',image:'',description:'For videos, livestreams, and selfies.',tiktok:'',shopee:''},
+ {id:'s3',name:'Mini Portable Blender',price:'₱199–₱399',category:'Kitchen',image:'',description:'Compact blender for everyday use.',tiktok:'',shopee:''},
+ {id:'s4',name:'Smart Watch Fitness Tracker',price:'₱299–₱599',category:'Sports & Fitness',image:'',description:'A wearable tech accessory.',tiktok:'',shopee:''},
+ {id:'s5',name:'Mini Handheld Vacuum',price:'₱149–₱299',category:'Home & Living',image:'',description:'Compact cleaning gadget.',tiktok:'',shopee:''},
+ {id:'s6',name:'Portable Washing Machine',price:'₱299–₱499',category:'Home & Living',image:'',description:'Space-saving laundry helper.',tiktok:'',shopee:''},
+ {id:'s7',name:'Portable Rechargeable Fan',price:'₱99–₱249',category:'Electronics',image:'',description:'Handy fan for on-the-go use.',tiktok:'',shopee:''},
+ {id:'s8',name:'Kitchen Food Chopper',price:'₱129–₱299',category:'Kitchen',image:'',description:'Useful kitchen gadget.',tiktok:'',shopee:''}
+];
+let products=[];
+try{products=JSON.parse(localStorage.getItem(KEY)||'null')||starter}catch(e){products=starter}
+let activeCategory='All';
+const grid=document.getElementById('grid'),filters=document.getElementById('categories'),search=document.getElementById('search'),form=document.getElementById('productForm');
+function save(){localStorage.setItem(KEY,JSON.stringify(products))}
+function safeUrl(raw){try{const u=new URL(raw);return ['http:','https:'].includes(u.protocol)?u.href:''}catch(e){return ''}}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderFilters(){
+ const cats=['All',...new Set(products.map(p=>p.category||'Other'))];
+ filters.innerHTML=cats.map(c=>`<button class="filter ${c===activeCategory?'active':''}" type="button" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+ filters.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeCategory=b.dataset.cat;renderFilters();renderProducts()});
+}
+function renderProducts(){
+ const q=search.value.trim().toLowerCase();
+ const shown=products.filter(p=>(activeCategory==='All'||p.category===activeCategory)&&`${p.name} ${p.category} ${p.description}`.toLowerCase().includes(q));
+ if(!shown.length){grid.innerHTML='<div class="empty">Walay produkto nga makita. Add products below or change your search.</div>';return}
+ grid.innerHTML=shown.map(p=>{
+  const img=safeUrl(p.image||'');
+  const tt=safeUrl(p.tiktok||''),sh=safeUrl(p.shopee||'');
+  return `<article class="card"><div class="photo">${img?`<img src="${esc(img)}" alt="${esc(p.name)}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=emoji>📦</span>'">`:`<span class="emoji">📦</span>`}</div><div class="card-body"><div class="category">${esc(p.category||'Other')}</div><h3>${esc(p.name)}</h3>${p.description?`<div class="small">${esc(p.description)}</div>`:''}<div class="price">${esc(p.price||'Check store price')}</div><div class="store-row">${tt?`<a class="store tt" href="${esc(tt)}" target="_blank" rel="noopener noreferrer sponsored">TikTok Shop ↗</a>`:`<span class="store tt no-link">TikTok link not set</span>`}${sh?`<a class="store sh" href="${esc(sh)}" target="_blank" rel="noopener noreferrer sponsored">Shopee ↗</a>`:`<span class="store sh no-link">Shopee link not set</span>`}</div><div class="actions"><button class="btn secondary" type="button" data-edit="${esc(p.id)}">Edit</button><button class="btn danger" type="button" data-delete="${esc(p.id)}">Delete</button></div></div></article>`;
+ }).join('');
+ grid.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editProduct(b.dataset.edit));
+ grid.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('Delete this product?')){products=products.filter(p=>p.id!==b.dataset.delete);save();renderAll()}});
+}
+function renderAll(){renderFilters();renderProducts()}
+function editProduct(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ for(const k of ['name','price','category','image','tiktok','shopee','description'])form.elements[k].value=p[k]||'';
+ form.dataset.editId=id;document.getElementById('formMessage').textContent='Editing: '+p.name+' — save to update.';
+ document.getElementById('manage').open=true;document.getElementById('manage').scrollIntoView({behavior:'smooth',block:'start'});
+}
+form.addEventListener('submit',e=>{
+ e.preventDefault();const fd=new FormData(form);const editId=form.dataset.editId;
+ const p={id:editId||('p'+Date.now()),name:fd.get('name').trim(),price:fd.get('price').trim(),category:fd.get('category'),image:safeUrl(fd.get('image')),tiktok:safeUrl(fd.get('tiktok')),shopee:safeUrl(fd.get('shopee')),description:fd.get('description').trim()};
+ if(editId){products=products.map(x=>x.id===editId?p:x)}else{products.unshift(p)}
+ save();form.reset();delete form.dataset.editId;document.getElementById('formMessage').textContent='Product saved in this browser.';renderAll();
+});
+document.getElementById('resetForm').onclick=()=>{form.reset();delete form.dataset.editId;document.getElementById('formMessage').textContent=''};
+document.getElementById('exportData').onclick=()=>{const blob=new Blob([JSON.stringify(products,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='shoplink-ph-products.json';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('importFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(!Array.isArray(data))throw Error();products=data.map((p,i)=>({...p,id:String(p.id||('import'+i))}));save();renderAll();document.getElementById('formMessage').textContent='Backup imported.'}catch(err){document.getElementById('formMessage').textContent='Import failed. Please choose a valid backup JSON file.'}e.target.value=''});
+search.addEventListener('input',renderProducts);
+renderAll();
+</script>
+</body>
+</html>
