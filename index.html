@@ -68,10 +68,66 @@ $('zoomModal').onclick = (e) => {
 
 function renderAdminList(){if(!loggedIn)return;$('adminList').innerHTML=products.length?products.map(p=>`<div class="adminitem"><div><strong>${esc(p.name)}</strong><small>${esc(p.category||'Other')} · ${esc(p.price||'Price not set')}</small></div><div class="btnrow"><button class="btn secondary" data-edit="${esc(p.id)}">Edit</button><button class="btn danger" data-delete="${esc(p.id)}">Delete</button></div></div>`).join(''):'<div class="hint">No products yet. Add one using the form above.</div>';$('adminList').querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{let p=products.find(x=>String(x.id)===b.dataset.edit);if(!p)return;for(let k of ['id','name','price','category','image','tiktok','shopee','description'])form.elements[k].value=p[k]\vert{}\vert{}'';form.scrollIntoView({behavior:'smooth',block:'start'})});$('adminList').querySelectorAll('[data-delete]').forEach(b=>b.onclick=async()=>{if(!confirm('Delete this product?'))return;try{await request('/api/products?id='+encodeURIComponent(b.dataset.delete),{method:'DELETE'});await loadProducts();setStatus('adminStatus','Product deleted.')}catch(e){setStatus('adminStatus',e.message)}})}
 function renderAll(){renderFilters();renderProducts();renderAdminList()}
-function setStatus(id,msg){$(id).textContent=msg}$('search').addEventListener('input',renderProducts);$('sort').addEventListener('change',renderProducts);$('showLogin').onclick=()=>{$('loginArea').classList.toggle('hidden');$('adminPassword').focus()};
-$('cancelLogin').onclick=()=>$('loginArea').classList.add('hidden');
-$('loginForm').onsubmit=async e=>{e.preventDefault();setStatus('loginStatus','Signing in…');try{await request('/api/admin/login',{method:'POST',body:JSON.stringify({password:$('adminPassword').value})});loggedIn=true;$('loginArea').classList.add('hidden');$('adminArea').classList.remove('hidden');$('showLogin').classList.add('hidden');$('adminPassword').value='';await loadProducts();renderAdminList();setStatus('adminStatus','Signed in successfully.')}catch(err){setStatus('loginStatus',err.message)}};
-$('logout').onclick=async()=>{try{await request('/api/admin/logout',{method:'POST',body:'{}'})}catch{}loggedIn=false;$('adminArea').classList.add('hidden');$('showLogin').classList.remove('hidden');toast('Signed out.')};$('clearForm').onclick=()=>{form.reset();form.elements.id.value='';setStatus('adminStatus','')};
-form.onsubmit=async e=>{e.preventDefault();if(!loggedIn){setStatus('adminStatus','Please sign in first.');return}const fd=new FormData(form),p={name:String(fd.get('name')||'').trim(),price:String(fd.get('price')||'').trim(),category:String(fd.get('category')||'Other'),image:safeUrl(fd.get('image')),tiktok:safeUrl(fd.get('tiktok')),shopee:safeUrl(fd.get('shopee')),description:String(fd.get('description')||'').trim()};let id=String(fd.get('id')||'');try{await request('/api/products'+(id?'?id='+encodeURIComponent(id):''),{method:id?'PUT':'POST',body:JSON.stringify(p)});form.reset();form.elements.id.value='';await loadProducts();setStatus('adminStatus','Product saved to the online catalog.')}catch(err){setStatus('adminStatus',err.message)}};
-loadProducts();
+function setStatus(id,msg){$(id).textContent=msg}
+
+document.addEventListener('DOMContentLoaded', () => {
+  $('search').addEventListener('input',renderProducts);
+  $('sort').addEventListener('change',renderProducts);$('showLogin').onclick = () => {
+    $('loginArea').classList.toggle('hidden');$('adminPassword').focus();
+  };
+  $('cancelLogin').onclick = () => $('loginArea').classList.add('hidden');$('loginForm').onsubmit = async e => {
+    e.preventDefault();
+    setStatus('loginStatus','Signing in…');
+    try{
+      await request('/api/admin/login',{method:'POST',body:JSON.stringify({password:$('adminPassword').value})});
+      loggedIn=true;
+      $('loginArea').classList.add('hidden');$('adminArea').classList.remove('hidden');
+      $('showLogin').classList.add('hidden');$('adminPassword').value='';
+      await loadProducts();
+      renderAdminList();
+      setStatus('adminStatus','Signed in successfully.');
+    }catch(err){
+      setStatus('loginStatus',err.message);
+    }
+  };
+  
+  $('logout').onclick = async () => {
+    try{await request('/api/admin/logout',{method:'POST',body:'{}'})}catch{}
+    loggedIn=false;
+    $('adminArea').classList.add('hidden');$('showLogin').classList.remove('hidden');
+    toast('Signed out.');
+  };
+  
+  $('clearForm').onclick = () => {
+    form.reset();
+    form.elements.id.value='';
+    setStatus('adminStatus','');
+  };
+  
+  form.onsubmit = async e => {
+    e.preventDefault();
+    if(!loggedIn){setStatus('adminStatus','Please sign in first.');return}
+    const fd=new FormData(form),p={
+      name:String(fd.get('name')||'').trim(),
+      price:String(fd.get('price')||'').trim(),
+      category:String(fd.get('category')||'Other'),
+      image:safeUrl(fd.get('image')),
+      tiktok:safeUrl(fd.get('tiktok')),
+      shopee:safeUrl(fd.get('shopee')),
+      description:String(fd.get('description')||'').trim()
+    };
+    let id=String(fd.get('id')||'');
+    try{
+      await request('/api/products'+(id?'?id='+encodeURIComponent(id):''),{method:id?'PUT':'POST',body:JSON.stringify(p)});
+      form.reset();
+      form.elements.id.value='';
+      await loadProducts();
+      setStatus('adminStatus','Product saved to the online catalog.');
+    }catch(err){
+      setStatus('adminStatus',err.message);
+    }
+  };
+  
+  loadProducts();
+});
 </script></body></html>
